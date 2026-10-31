@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Test dan Tugas Modul 2</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 30px auto; padding: 0 16px; line-height: 1.6; }
+        h1, h2 { border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+        .screenshot { border: 2px dashed #999; padding: 20px; text-align: center; color: #666; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Modul 2 - Git</h1>
+    <p>Nama: Fabio Alifabiandra</p>
+
+    <h2>F. Post-Test</h2>
+
+    <h3>1. Apa fungsi dari git merge dalam workflow Git?</h3>
+    <p>
+        Menggabungkan perubahan dari satu branch ke branch lain, misalnya hasil kerja di branch
+        fitur digabung ke branch main, sehingga riwayat dan isi file dari kedua branch menyatu.
+    </p>
+
+    <h3>2. Jelaskan cara mengatasi konflik saat melakukan merge!</h3>
+    <p>
+        Konflik terjadi saat dua branch mengubah baris yang sama pada file yang sama, sehingga Git tidak bisa memilih sendiri. Langkahnya:
+    </p>
+    <ol>
+        <li>Jalankan git status untuk melihat file yang konflik.</li>
+        <li>Buka file tersebut. Bagian yang konflik ditandai <<<<<<<, =======, dan >>>>>>>.</li>
+        <li>Pilih isi yang dipakai (salah satu atau gabungan), lalu hapus ketiga tanda tadi.</li>
+        <li> Simpan file, lalu jalankan git add nama_file.</li>
+        <li> Jalankan git commit untuk menyelesaikan merge.</li>
+    </ol>
+
+    <h3>3. Tulis langkah-langkah untuk menambahkan file baru ke repository Git dan melakukan commit.</h3>
+    <ol>
+        <li>Buat atau salin file ke folder proyek.</li>
+        <li>git status untuk memastikan file terdeteksi (untracked).</li>
+        <li>git add nama_file untuk memasukkannya ke staging area.</li>
+        <li>git commit -m "pesan commit" untuk merekam perubahan.</li>
+        <li>git push kalau ingin mengirimnya ke GitHub.</li>
+    </ol>
+
+    <h2>G. Latihan / Tugas</h2>
+
+    <h3>1. Repository Git untuk proyek web (pembuatan, commit, dan push ke GitHub)</h3>
+    <p>
+        Proyek: Profil Keluarga.<br>
+        Repository: <a href="https://github.com/murakami14/profile_keluarga">https://github.com/murakami14/profile_keluarga</a><br>
+        Situs (GitHub Pages): <a href="https://murakami14.github.io/profile_keluarga/profilekeluargacss.html">https://murakami14.github.io/profile_keluarga/profilekeluargacss.html</a>
+    </p>
+    <p>Perintah yang dijalankan:</p>
+<pre>git init
+git add profilekeluargacss.html
+git commit -m "Initial commit: profile keluarga fabio"
+git remote add origin https://github.com/murakami14/profile_keluarga.git
+git branch -M main
+git push -u origin main</pre>
+    <div class="screenshot"><img src="Screenshot (1506).png" width="700"></div>
+    <div class="screenshot"><img src="Screenshot (1509).png" width="700"></div>
+    <div class="screenshot"><img src="Screenshot (1510).png" width="700"></div>
+    <div class="screenshot"><img src="Screenshot (1513).png" width="700"></div>
+
+    <h3>2. Workflow Git dengan branch fitur baru dan integrasi ke branch utama</h3>
+    <p>Alur: <code>main</code> (stabil) &rarr; buat branch fitur &rarr; commit di branch fitur &rarr; merge ke <code>main</code> &rarr; push &rarr; hapus branch fitur.</p>
+<pre>git checkout -b fitur-readme
+echo "# Profil Keluarga" &gt; README.md
+git add README.md
+git commit -m "Add README"
+git checkout main
+git merge fitur-readme
+git push origin main
+git branch -d fitur-readme
+git log --oneline --graph</pre>
+    <div class="screenshot"><img src="Screenshot (1521).png" width="700"></div>
+
+    <h3>3. Seluruh praktikum modul sebelumnya disimpan di repository Git</h3>
+    <p>
+        Repository: <a href="https://github.com/murakami14/pweb1">https://github.com/murakami14/pweb1</a><br>
+        Isi: Latihan 01 sampai 05, Post Test 01, dan Tugas Biodata.
+    </p>
+    <div class="screenshot"><img src="Screenshot (1512).png" width="700"></div>
+</body>
+</html>
